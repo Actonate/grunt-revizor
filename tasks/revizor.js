@@ -59,8 +59,6 @@ module.exports = function(grunt) {
         var lastIndex = fileSplit.length - 1;
         var fileExtension = fileSplit[lastIndex];
 
-        console.log(fileExtension);
-
         if (fileExtension === 'css') {
           cssFiles.push(filepath);
         }
