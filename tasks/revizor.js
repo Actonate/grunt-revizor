@@ -48,11 +48,10 @@ module.exports = function(grunt) {
     firstCharList = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     OtherCharsList = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_';
 
-    filesForCompress = this.filesSrc.filter(function(filepath) {
-      var pattern = new RegExp(options.compressFilePrefix + '\\.\\S+$');
-      return filepath.match(pattern) === null ? true : false;
-    });
+    // removed filtering
+    filesForCompress = this.filesSrc;
 
+    // changed logic to support cases like .min.css
     filesForCompress.forEach(function(filepath) {
       var fileSplit = filepath.split('.');
 
