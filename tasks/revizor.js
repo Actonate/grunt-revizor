@@ -54,11 +54,17 @@ module.exports = function(grunt) {
     });
 
     filesForCompress.forEach(function(filepath) {
-      var fileExtension;
-      fileExtension = filepath.match(/\.(\S+$)/);
-      fileExtension = fileExtension === null ? '' : fileExtension[1];
-      if (fileExtension === 'css') {
-        cssFiles.push(filepath);
+      var fileSplit = filepath.split('.');
+
+      if (fileSplit.length > 1) {
+        var lastIndex = fileSplit.length - 1;
+        var fileExtension = fileSplit[lastIndex];
+
+        console.log(fileExtension);
+
+        if (fileExtension === 'css') {
+          cssFiles.push(filepath);
+        }
       }
     });
 
